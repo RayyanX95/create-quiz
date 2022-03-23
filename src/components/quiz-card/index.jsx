@@ -22,7 +22,7 @@ const QuizCard = () => {
             <small className="bg-light px-2 py-1 rounded-1">18 Questions</small>
           </Col>
           <Col sm="auto">
-            <Button className="px-4">Edit</Button>
+            <Button className="px-3">Edit</Button>
           </Col>
         </Row>
 
