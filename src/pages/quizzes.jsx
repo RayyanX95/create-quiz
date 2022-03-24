@@ -22,7 +22,7 @@ const Quizzes = ({ quizzes }) => {
         <Row>
           {!quizzes.length
             ? <h6 className="text-center text-muted mt-3">No quizzes found, try to add one 🙂</h6>
-            : quizzes.map((quiz) => (
+            : quizzes?.map((quiz) => (
               <Col lg={3} md={4} key={quiz.id} className="mb-2">
                 <QuizCard data={quiz} />
               </Col>

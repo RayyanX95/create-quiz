@@ -23,11 +23,12 @@ const Questions = ({ quizzes }) => {
           </Col>
         </Row>
         <Row className="justify-content-center">
-          {questions.map((quest) => (
-            <Col lg={9} key={quest.id}>
-              <QuestionCard data={quest} />
-            </Col>
-          ))
+          {!questions?.length ? <h6 className="text-center text-muted">Something went wrong ☹️</h6>
+            : questions?.map((quest) => (
+              <Col lg={9} key={quest.id}>
+                <QuestionCard data={quest} />
+              </Col>
+            ))
           }
         </Row>
       </Container>

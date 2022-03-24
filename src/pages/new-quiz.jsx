@@ -74,7 +74,7 @@ const NewQuiz = ({ updateQuizzes, quizzes, isEdit }) => {
   };
 
   const resetAllRadiosToFalse = (tempAnswers) => {
-    return tempAnswers.map((ans) =>  ({
+    return tempAnswers?.map((ans) =>  ({
         ...ans,
         is_true: false,
       }))

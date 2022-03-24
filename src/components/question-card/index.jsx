@@ -6,7 +6,7 @@ const QuestionCard = ({ data }) => {
   const [answers, setAnswers] = useState([]);
 
   const addShowFeedbackPropToData = useCallback(() => {
-    const tempAnswers = data.answers.map((ans) => ({ ...ans, showFeedback: false }));
+    const tempAnswers = data.answers?.map((ans) => ({ ...ans, showFeedback: false }));
     setAnswers(tempAnswers);
   }, [data.answers]);
 
@@ -15,7 +15,7 @@ const QuestionCard = ({ data }) => {
   }, [addShowFeedbackPropToData]);
 
   const resetAllRadiosToFalse = (tempAnswers) => {
-    return tempAnswers.map((ans) => ({
+    return tempAnswers?.map((ans) => ({
       ...ans,
       showFeedback: false,
     }));
@@ -31,7 +31,7 @@ const QuestionCard = ({ data }) => {
 
     setAnswers(tempAnswers);
   }
-
+  console.log(data);
   return (
     <section className="question-card">
       <Row>
@@ -45,7 +45,7 @@ const QuestionCard = ({ data }) => {
         </Col>
       </Row>
       <Row>
-        {answers.map((ans) => (
+        {answers?.map((ans) => (
           <Col md={6} key={ans.id} className="mb-2">
             <FormGroup check>
               <Input
@@ -55,7 +55,7 @@ const QuestionCard = ({ data }) => {
               />
               {' '}
               <Label check className="small mb-0">
-                {ans.text ? data.text : 'Option two can be something else and selecting it will deselect option one'}
+                {ans.text ? ans.text : 'Option two can be something else and selecting it will deselect option one'}
               </Label>
               <p className={`feedback ${ans.is_true ? 'text-success' : 'text-danger'} ${!ans.showFeedback && 'hidden'}`}>
                 {ans.is_true ? (data.feedback_true || 'Correct answer') : (data.feedback_false || 'Wrong answer')}
