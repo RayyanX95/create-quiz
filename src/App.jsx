@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './assets/scss/main.scss';
 import Quizzes from "./pages/quizzes";
 import NewQuiz from './pages/new-quiz';
+import Questions from "./pages/questions";
 
 function App() {
   const [quizzes, setQuizzes] = useState([]);
@@ -24,7 +25,8 @@ function App() {
         <Routes>
           <Route path="/" exact element={<Quizzes quizzes={quizzes} />} />
           <Route path="/new-quiz" element={<NewQuiz updateQuizzes={updateQuizzes} />} />
-          <Route path="/quiz/:id" element={<NewQuiz updateQuizzes={updateQuizzes} quizzes={quizzes} isEdit />} />
+          <Route path="/quiz/:id" exact element={<NewQuiz updateQuizzes={updateQuizzes} quizzes={quizzes} isEdit />} />
+          <Route path="/quiz/:id/questions" element={<Questions quizzes={quizzes} />} />
         </Routes>
       </Router>
     </section>

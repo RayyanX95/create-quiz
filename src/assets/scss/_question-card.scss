@@ -8,4 +8,13 @@
   &:hover {
   background-color: rgba(238, 238, 238, 0.384);
   }
+
+  .feedback {
+    font-size: small;
+    margin: -5px 0 0 0;
+    &.hidden {
+      visibility: hidden;
+    }
+  }
+  
 }

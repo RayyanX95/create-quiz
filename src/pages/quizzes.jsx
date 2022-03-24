@@ -11,7 +11,7 @@ const Quizzes = ({ quizzes }) => {
       <Container>
         <Row className="justify-content-between mb-3">
           <Col md="auto">
-            <h3>Quizzes List</h3>
+            <h4>Quizzes</h4>
           </Col>
           <Col md="auto">
             <Link to="/new-quiz">

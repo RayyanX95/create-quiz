@@ -57,7 +57,6 @@ const NewQuiz = ({ updateQuizzes, quizzes, isEdit }) => {
   const quizId = useParams().id;
   const [data, setData] = useState(() => isEdit ? getQuizById(quizId) : initialState());
   const navigate = useNavigate();
-  console.log(useParams())
 
   const quizChangeHandler = (name, value) => {
     setData({ ...data, [name]: value });
@@ -74,14 +73,14 @@ const NewQuiz = ({ updateQuizzes, quizzes, isEdit }) => {
     setData(tempData);
   };
 
-  const resetAllRadiosToFalse = (tempAnswers, ansIndex) => {
-    return tempAnswers.map((ans, index) =>  ({
+  const resetAllRadiosToFalse = (tempAnswers) => {
+    return tempAnswers.map((ans) =>  ({
         ...ans,
         is_true: false,
       }))
   }
+
   const answersChangeHandler = (name, value, ansIndex, questIndex) => {
-    console.log(value);
     const tempData = { ...data };
     const tempQuestions = [...tempData.questions_answers];
     let tempAnswers = [...tempQuestions[questIndex].answers];
@@ -97,13 +96,10 @@ const NewQuiz = ({ updateQuizzes, quizzes, isEdit }) => {
     tempData.questions_answers = tempQuestions;
     setData(tempData);
   }
-  // console.log('quiz.quizzes', data);
-
   const addNewQuestionHandler = () => {
     const tempData = { ...data };
     const tempQuestions = [...tempData.questions_answers];
     tempQuestions.push(initialQuestion());
-    console.log(tempQuestions);
     tempData.questions_answers = tempQuestions;
     setData(tempData);
   };
@@ -117,9 +113,9 @@ const NewQuiz = ({ updateQuizzes, quizzes, isEdit }) => {
   return (
     <section>
       <Container>
-        <Row>
+        <Row className="mb-3">
           <Col>
-            <h4 className="mb-3">Create New Quiz</h4>
+            <h4>Create New Quiz</h4>
           </Col>
           <Col md="auto">
             <Link to="/">
