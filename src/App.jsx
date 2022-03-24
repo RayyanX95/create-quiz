@@ -6,6 +6,13 @@ import Quizzes from "./pages/quizzes";
 import NewQuiz from './pages/new-quiz';
 import Questions from "./pages/questions";
 
+//* Some TODOs to enhance the app:
+// TODO: Add validations to form of create / edit quiz
+// TODO: Enhance the UI and add some colors
+// TODO: Add eslint to standardize the code
+
+//! The task description did not mention what to do with youtube URL
+
 function App() {
   const [quizzes, setQuizzes] = useState([]);
 
