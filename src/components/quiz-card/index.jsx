@@ -1,9 +1,8 @@
 import React from 'react';
-import { Button, Card, CardBody, CardImg, CardTitle } from 'reactstrap';
-import { Col } from 'reactstrap';
-import { Row } from 'reactstrap';
+import { Row, Col, Button, Card, CardBody, CardImg, CardTitle } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-const QuizCard = () => {
+const QuizCard = ({ data }) => {
   return (
     <Card>
       <CardImg
@@ -14,15 +13,17 @@ const QuizCard = () => {
       />
       <CardBody>
         <CardTitle tag="h5" className="mb-3">
-          Card title
+          {data.title || "untitled"}
         </CardTitle>
-        <p className="text-muted small ">modified at 2020-09-09 09:26:39</p>
+        <p className="text-muted small ">modified at {data.modified}</p>
         <Row className="justify-content-between align-items-center">
           <Col sm="auto">
-            <small className="bg-light px-2 py-1 rounded-1">18 Questions</small>
+            <small className="bg-light px-2 py-1 rounded-1">{data?.questions_answers?.length} Questions</small>
           </Col>
           <Col sm="auto">
-            <Button className="px-3">Edit</Button>
+            <Link to={`/quiz/${data.id}`}>
+              <Button className="px-3">Edit</Button>
+            </Link>
           </Col>
         </Row>
 

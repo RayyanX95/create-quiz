@@ -3,8 +3,9 @@ import { Container, Button } from 'reactstrap';
 import { Row } from 'reactstrap';
 import { Col } from 'reactstrap';
 import QuizCard from '../components/quiz-card';
+import { Link } from 'react-router-dom';
 
-const Quizzes = () => {
+const Quizzes = ({ quizzes }) => {
   return (
     <section>
       <Container>
@@ -13,19 +14,20 @@ const Quizzes = () => {
             <h3>Quizzes List</h3>
           </Col>
           <Col md="auto">
-            <Button className="btn-success">Add New Quiz</Button>
+            <Link to="/new-quiz">
+              <Button className="btn-success">Add New Quiz</Button>
+            </Link>
           </Col>
         </Row>
         <Row>
-          <Col md={4}>
-            <QuizCard />
-          </Col>
-          <Col md={4}>
-            <QuizCard />
-          </Col>
-          <Col md={4}>
-            <QuizCard />
-          </Col>
+          {!quizzes.length
+            ? <h6 className="text-center text-muted mt-3">No quizzes found, try to add one 🙂</h6>
+            : quizzes.map((quiz) => (
+              <Col lg={3} md={4} key={quiz.id} className="mb-2">
+                <QuizCard data={quiz} />
+              </Col>
+            ))
+          }
         </Row>
       </Container>
     </section>
