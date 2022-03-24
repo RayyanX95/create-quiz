@@ -1,0 +1,16 @@
+/** @format */
+
+.overwrite-anchor-style {
+  color: inherit;
+  text-decoration: none;
+  &:hover {
+    color: inherit;
+  }
+
+  .card {
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.15);
+    &:hover {
+      background-color: rgba(238, 238, 238, 0.349);
+    }
+  }
+}
